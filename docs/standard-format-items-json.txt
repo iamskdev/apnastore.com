@@ -1,0 +1,89 @@
+
+{
+  "itemId": "ITM000000000001",
+  "type": "product",
+  "name": "Parle G Biscuit 80g",
+  "brandName": "brand_parle",
+  "sku": "PARLEG-80G",
+  "barcode": "8901234567890",
+  "barcodeType": "EAN-13",
+  "barcodeImage": "/admin/images/merchants/barcodes/parle-g-80g.png",
+  "categoryId": "Biscuits",
+  "subcategoryId": "subcat_glucose",
+  "merchantId": "MRC00000001",
+  "tags": ["biscuit", "parle", "glucose", "snack"],
+  "adminNote": "most trending item in the biscuits category",
+  "pricing": {
+    "currency": "INR",
+    "mrp": 12,
+    "costPrice": 8,
+    "sellingPrice": 10
+  },
+  "inventory": {
+    "stockQty": 200,
+    "unit": "Packet",
+    "unitType": "count",
+    "batchId": "BATCH001",
+    "expiryDate": "2025-12-31",
+    "lowStockThreshold": 20,
+    "isLowStock": false
+  },
+  "delivery": {
+    "deliveryModes": ["On Site", "Pickup", "Home Delivery", "Online"],
+    "defaultDeliveryMode": "On Site"
+  },
+  "descriptions": {
+    "description": "Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea.",
+    "shortDescription": "Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea. Classic glucose biscuit by Parle, perfect with tea."
+  },
+  "media": {
+    "images": [
+      "parleg-cup.jpg", "parleg-tea.jpg", "parleg-royal.jpg",
+      "parleg-gold.jpg", "parleg-glucose.jpg", "parleg-genius.jpg",
+      "Parleg-add.jpg", "parleg-white.jpg"
+    ],
+    "thumbnail": null,
+    "video": null
+  },
+  "attributes": {
+    "flavor": "original",
+    "weight": "80g",
+    "packaging": "Plastic Packet",
+    "origin": "India",
+    "shelfLife": "6 months"
+  },
+  "policies": {
+    "returnPolicy": "7 days replacement only",
+    "warranty": "Not applicable"
+  },
+  "status": {
+    "isAvailable": true,
+    "isActive": true,
+    "isPopular": true,
+    "visibility": "catalog_search",
+    "deleted": false,
+    "archived": false,
+    "priority": "normal"
+  },
+  "analytics": {
+    "rating": 4.5,
+    "numReviews": 120,
+    "views": 1500,
+    "wishlists": 50,
+    "totalSales": 450,
+    "revenueGenerated": 4500,
+    "lastSoldAt": "2025-07-21T14:30:00Z"
+  },
+  "meta": {
+    "title": "Parle G Biscuit - Best Tea Time Snack",
+    "keywords": ["parle g", "glucose biscuit", "tea snack"],
+    "description": "Original Parle-G glucose biscuit at best price online."
+  },
+  "audit": {
+    "version": 1.0,
+    "createdBy": "mycafe@outlook.in",
+    "updatedBy": "mycafe@outlook.in",
+    "createdAt": "2024-06-10T12:00:00Z",
+    "updatedAt": "2024-06-10T12:00:00Z"
+  }
+}

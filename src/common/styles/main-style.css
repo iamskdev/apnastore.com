@@ -1,0 +1,590 @@
+:root {
+  --header-height: 56px;  /* Default header height */
+  --bottom-height: 60px;  /* Default bottom bar height */
+}
+
+/* ================================= */
+/* 🎨 THEME VARIABLES (LIGHT & DARK) */
+/* ================================= */
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #f9f9f9;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f2f5;
+  --bg-hover: #e4e6e9; /* For interactive elements like tabs */
+  --bg-secondary-rgb: 255, 255, 255;
+  --text-primary: #1c1e21;
+  --text-secondary: #606770;
+  --text-tertiary: #8a8d91;
+  --border-color: #e0e0e0;
+  --accent-primary: #4361ee; /* Updated to match component styles */
+  --accent-primary-hover: #3a53c4; /* Darker shade for hover */
+  --accent-primary-rgb: 67, 97, 238;
+  --accent-secondary: #28a745;
+  --accent-secondary-hover: #218838;
+  --accent-text: #ffffff;
+  --error-color: #d93025;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-focus-primary: rgba(0, 123, 255, 0.2);
+  --shadow-focus-secondary: rgba(40, 167, 69, 0.2);
+  --shadow-focus-error: rgba(217, 48, 37, 0.2);
+  --text-google-btn: #3c4043;
+  --page-bg-gradient: linear-gradient(to top right, #f0f2f5, #e6e9ed);
+  
+}
+
+html.dark-mode {
+  /* Dark Theme */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2a2a3b;
+  --bg-hover: #3a3b4c; /* For interactive elements like tabs */
+  --bg-secondary-rgb: 30, 30, 30;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #7f8c8d;
+  --border-color: #333333;
+  --accent-primary: #4cc9f0; /* Updated to match component styles */
+  --accent-primary-hover: #3fb8de; /* Darker shade for hover */
+  --accent-primary-rgb: 76, 201, 240;
+  --accent-secondary: #69f0ae;
+  --accent-secondary-hover: #00bfa5;
+  --accent-text: #000000;
+  --error-color: #ff5252;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-focus-primary: rgba(68, 138, 255, 0.25);
+  --shadow-focus-secondary: rgba(105, 240, 174, 0.25);
+  --shadow-focus-error: rgba(255, 82, 82, 0.25);
+  --text-google-btn: #e0e0e0;
+  --page-bg-gradient: linear-gradient(to top right, #1a1a2e, #16213e);
+}
+
+/* ======================== */
+/* 🏠 MAIN BODY & LAYOUT */
+/* ======================== */
+html {
+  /* Set box-sizing globally for more predictable layouts */
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  /* Inherit box-sizing from html for all elements */
+  box-sizing: inherit;
+}
+
+body {
+  /* Flex properties for sticky footer layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures body takes full viewport height for sticky footer */
+
+  margin: 0; /* Reset margin */
+  font-family: 'Noto Sans', sans-serif;
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+}
+
+.page-content {
+  background: var(--bg-secondary);
+  flex: 1 0 auto; 
+  padding-top: var(--header-height); /* Use the header height variable or default to 56px */
+  padding-bottom: var(--bottom-height); /* Use the bottom height variable or default to 56px */
+   display: flex;
+  flex-direction: column;
+}
+
+/* ======================== */
+/* 🧩 GLOBAL & UTILITY CLASSES */
+/* ======================== */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Removes tap highlight on mobile */
+}
+
+button, a, [role="button"], i {
+  cursor: pointer;
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active, a:active, [role="button"]:active, i:active {
+  filter: brightness(0.95);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  transform: none;
+}
+
+.search-result-header {
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-result-header #search-query-display {
+  color: var(--accent-primary);
+}
+
+.page-view.hidden {
+  display: none !important;
+}
+
+.placeholder-view {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* Styles for the Guest Prompt on the Account page */
+.guest-icon {
+  font-size: 3rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.prompt-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prompt-login-button {
+  background-color: var(--accent-primary);
+  color: var(--accent-text);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.prompt-signup-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.prompt-signup-text a {
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.prompt-signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* ======================== */
+/* 🏪 HEADER SECTION */
+/* ======================== */
+.promo-banner {
+  background: #ff9800;
+  color: white;
+  padding: 0.6rem;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+}
+
+/* ======================== */
+/* 🔍 SEARCH SUGGESTIONS */
+/* ======================== */
+.search-suggestions {
+  position: absolute; /* Relative to the .header-container */
+  top: 100%; /* Position it right below its parent */
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  /* The shadow has no vertical offset, making it appear directly behind the box. */
+  box-shadow: 0 0 8px var(--shadow-color);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  /* The top border is removed to prevent a "double border" effect with the header's bottom border. */
+  max-height: 60vh;
+  overflow-y: auto;
+  display: none;
+  z-index: 1002;
+  list-style: none;
+  padding: 0;
+  margin: 0; /* CRUCIAL: Resets the browser's default margin on <ul> elements, removing the visual gap. */
+}
+
+.suggestion-item {
+  /* Aligning with the search bar's container padding (16px) */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active-suggestion {
+  background-color: var(--bg-tertiary);
+}
+
+/* This is the container for the icon and text on the left */
+.suggestion-item > span:first-child {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Icon for search suggestions (e.g., magnifying glass). */
+ul#search-suggestions .suggestion-item .suggestion-icon {
+  /* 
+    This margin is crucial for aligning the suggestion text with the search input text.
+    Calculation:
+    - Search Input Start = (search-mode padding-left) + (back-arrow width) + (back-arrow margin-right) + (input padding-left)
+                          = 12px + 20px + 8px + 12px = 52px
+    - Suggestion Text Start = (suggestion-item padding-left) + (icon width) + (this margin-right)
+                            = 16px + 20px + 16px = 52px
+  */
+  margin-right: 16px;
+  color: var(--text-tertiary);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+  display: inline-block; /* Ensure it is visible */
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+/* Action icon on the right of the suggestion */
+.suggestion-item .fa-arrow-up {
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: var(--text-tertiary);
+}
+
+.suggestion-item:hover .fa-arrow-up,
+.suggestion-item.active-suggestion .fa-arrow-up {
+  transform: rotate(-90deg) scale(1.15);
+  color: var(--accent-primary);
+}
+
+.suggestion-item .fa-arrow-up::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f124"; /* fa-location-arrow */
+  font-weight: 900;
+}
+
+/* ======================== */
+/* ↔️ TAB BUTTONS */
+/* ======================== */
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  padding: 0.75rem;
+  gap: 0.5rem;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 0.75rem 0;
+  border: none;
+  background: var(--bg-tertiary);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.tab-buttons button.active-tab {
+  background: var(--accent-primary);
+  color: var(--accent-text);
+  font-weight: bold;
+}
+
+.tab-buttons button.inactive-tab {
+  background: var(--bg-tertiary);
+}
+
+/* ======================== */
+/* 📦 CATEGORY BOX */
+/* ======================== */
+.category-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  max-width: auto;
+  margin: 0 auto;
+  /* Make scrollbar visible but subtle on Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--bg-tertiary);
+}
+
+.category-box::-webkit-scrollbar {
+  /* Make scrollbar visible and style it for Webkit browsers */
+  display: block;
+  height: 5px;
+}
+
+.category-box::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 5px;
+}
+
+.category-btn {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--bg-tertiary);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.category-btn:hover {
+  background: var(--border-color);
+}
+
+.category-btn.active {
+  background: var(--accent-primary);
+  color: var(--accent-text);
+  font-weight: bold;
+}
+
+
+/* ======================== */
+.no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  color: var(--text-tertiary);
+}
+
+/* ======================== */
+/* 🖥️ DESKTOP VIEW FOR CARDS*/
+/* ======================== */
+@media screen and (min-width: 600px) {
+  .items-grid {
+    display: grid;
+    /* Use auto-fill to prevent items from stretching when there are few. */
+    /* auto-fill creates empty tracks, while auto-fit collapses them. */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem; /* Control spacing between cards from the grid container */
+    padding: 1rem; /* Add padding around the entire grid */
+  }
+}
+
+/* ======================== */
+/* 🌀 SCROLLBARS */
+/* ======================== */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary-hover);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-tertiary);
+}
+
+/* =========================== */
+/* 🌙 DARK MODE ENHANCEMENTS   */
+/* =========================== */
+
+/* Enhance visibility of text on inactive tabs and categories in dark mode */
+.dark-mode .tab-buttons button.inactive-tab,
+.dark-mode .category-btn {
+  color: #e0e0e0; /* A brighter, more readable light grey */
+}
+/* Ensure input text in search box is readable in dark mode */
+.dark-mode .search-input {
+  color: var(--text-primary); /* Ensure text is visible */
+  background: var(--bg-primary);
+}
+
+/* Ensure active category button text is pure white for max contrast */
+.dark-mode .category-btn.active {
+    color: #ffffff;
+}
+
+/* Enhance card text visibility in dark mode */
+.dark-mode .card-content h3 {
+  color: #f5f5f5; /* A very light grey, close to white */
+}
+
+/* Make the price text more prominent and readable */
+.dark-mode .card-content p:not(.card-description) {
+  color: #e0e0e0; /* Same bright grey as category buttons */
+}
+
+.dark-mode .card-description {
+  color: #b0b0b0; /* A slightly dimmer grey for less important text */
+}
+
+/* This wrapper contains all the individual views */
+.views-wrapper {
+  flex: 1; /* This allows the wrapper to grow and fill the page-content area */
+  position: relative; /* Necessary for the absolutely positioned view-containers inside */
+  overflow: hidden; /* Prevents content from spilling out during transitions */
+}
+
+/* 🎨 View Container Styles 🎨 */
+
+.view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Let individual views manage their own padding */
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  background: var(--bg-secondary);
+}
+
+.view-container.view-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* Loading States */
+.view-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  margin-bottom: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(var(--accent-primary-rgb), 0.2);
+  border-top: 4px solid var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.view-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  color: var(--error-color);
+}
+
+.view-error i {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.view-error button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: var(--accent-primary);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Smooth Scrolling */
+.view-container {
+  scroll-behavior: smooth;
+}
+
+/* Performance Optimization */
+.view-container:not(.view-active) {
+  will-change: transform, opacity;
+}
+
+
+/*
+  Layout Fix for Embedded Footers
+  -------------------------------
+  This is the primary mechanism for footer layout now.
+  When a view container has an embedded footer, we make it a flex column.
+  This allows the footer inside to use `margin-top: auto` to push itself
+  to the bottom of the container, even if the view's content is empty.
+  This rule MUST live globally as a component cannot style its parent.
+*/
+.view-container.view-with-embedded-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================== */
+/* 🌀 FULL SCREEN LOADER     */
+/* ======================== */
+.full-screen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--bg-secondary-rgb), 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Highest z-index */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.full-screen-loader.hidden {
+  opacity: 0;
+  pointer-events: none; /* Make it non-interactive when hidden */
+}

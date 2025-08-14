@@ -1,0 +1,10 @@
+### फीडबैक Modal में एक नया देश कैसे जोड़ें:
+
+    ```html
+    <div class="custom-option" data-value="+[CODE]">(+[CODE]) [Country Name] <span class="flag-emoji">[Flag Emoji]</span></div>
+    ```
+
+    **उदाहरण (अफगानिस्तान के लिए):**
+    ```html
+    <div class="custom-option" data-value="+93">(+93) Afghanistan <span class="flag-emoji">🇦🇫</span></div>
+    ```

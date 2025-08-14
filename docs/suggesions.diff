@@ -1,0 +1,98 @@
+  const imageZoomContainer = document.getElementById('image-zoom-container');
+  const itemLeftEl = document.getElementById('item-left');
+
+  // Shared state for mobile swipe and zoom logic
+  let scale = 1;
+
+  // --- Image and Thumbnails ---
+  const images = Array.isArray(item.images) && item.images.length > 0 ? item.images : [item.image || defaultImage];
+  
+const getFullImagePath = (imgFile) => imgFile.startsWith('http') ? imgFile : basePath + imgFile;
+
+  mainImageEl.src = getFullImagePath(images[0]);
+  mainImageEl.onerror = () => { mainImageEl.src = getFullImagePath(defaultImage); };
+
+  thumbnailsContainerEl.innerHTML = '';
+  // Only create thumbnails if there are multiple images and we're on a desktop view.
+  if (images.length > 1 && window.matchMedia('(min-width: 720px)').matches) {
+    images.forEach(imgFile => {
+      const thumb = document.createElement('img');
+      thumb.src = getFullImagePath(imgFile);
+      thumb.alt = `Thumbnail for ${item.name}`;
+      thumb.className = 'thumbnail-img';
+      thumb.onclick = () => {
+        mainImageEl.src = getFullImagePath(imgFile);
+      };
+      thumbnailsContainerEl.appendChild(thumb);
+    });
+  }
+
+  // --- Mobile-only: Add swipe feature and dot indicators ---
+  // This logic runs only on screen widths less than 720px.
+  if (images.length > 1 && window.matchMedia('(max-width: 719px)').matches) {
+    let touchStartX = 0;
+    let currentImageIndex = 0;
+
+    // Create dot indicators dynamically
+    const dotContainer = document.createElement('div');
+    dotContainer.classList.add('image-dots');
+    images.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotContainer.appendChild(dot);
+      dot.addEventListener('click', () => updateImageAndDots(index)); // Add click listener
+    });
+    // Append dots after the image container so they appear below it.
+    // The parentNode is .main-image-with-btns
+    imageZoomContainer.parentNode.appendChild(dotContainer);
+
+    // --- Create and insert the divider ---
+    // Check if a divider already exists to prevent duplicates on actions like related-item clicks
+    if (itemLeftEl && !itemLeftEl.nextElementSibling?.classList.contains('mobile-item-divider')) {
+      const divider = document.createElement('div');
+      divider.className = 'mobile-item-divider';
+      itemLeftEl.insertAdjacentElement('afterend', divider);
+    }
+
+    const updateImageAndDots = (newIndex) => {
+      currentImageIndex = (newIndex + images.length) % images.length;
+      mainImageEl.src = getFullImagePath(images[currentImageIndex]);
+      // Update active dot
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentImageIndex);
+      });
+    };
+
+    imageZoomContainer.addEventListener('touchstart', (e) => {
+      // Do not start a swipe if the image is zoomed or if it's a multi-touch gesture.
+      if (scale > 1 || e.touches.length > 1) {
+        touchStartX = 0; // Prevent swipe from starting
+        return;
+      }
+      touchStartX = e.touches[0].clientX;
+    });
+
+    imageZoomContainer.addEventListener('touchmove', (e) => {
+            if (!touchStartX) return;
+      const touchEndX = e.touches[0].clientX;
+      const deltaX = touchEndX - touchStartX;
+      // You can adjust sensitivity by changing the threshold value (e.g., 50)
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          updateImageAndDots(currentImageIndex - 1); // Swipe right, show previous image
+      } else {
+        updateImageAndDots(currentImageIndex + 1); // Swipe left, show next image
+        }
+        touchStartX = 0; // Reset touch start
+      }
+    });
+
+    imageZoomContainer.addEventListener('touchend', () => {
+      touchStartX = 0; // Also reset on touch end
+    });
+  }
+
+  // --- Basic Info ---
+  document.getElementById('item-title').textContent = item.name;
+

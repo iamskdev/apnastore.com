@@ -1,0 +1,44 @@
+Aim:
+Apna Store app me header aur drawer ko dynamic banana tha —
+
+Taaki logo, naam, email, phone, etc. static na ho,
+Ye sab data users.json ya merchants.json se role ke hisaab se JS se fetch ho kar UI me dikh sake.
+
+App Overview:
+Apna Store ek store management app hai, jisme admin, public, developer views hain.
+Role-based UI:
+Alag-alag roles ke liye alag UI aur logic hai (admin, user, guest, developer).
+Dynamic Components:
+Shared partials (header, drawer, footer, nav) dynamically JS se load hote hain.
+Theme Support:
+Light/dark theme user preference ya system setting se set hota hai.
+Dev Mode:
+Developer mode me role switcher hai, jisse UI instantly update hota hai.
+Aapne Kya-Kya Changes Kiye (Summary)
+Header & Drawer Clean-up:
+
+Static (hardcoded) user/merchant data hata diya.
+Sirf placeholder IDs rakhe (logo, name, email, phone).
+JS Logic Update:
+
+ui-updater.js me async fetch logic likha, jo users.json/merchants.json se data fetch karta hai.
+Role ke hisaab se header/drawer update hota hai.
+Image Fallback:
+
+Agar image path galat ho ya image missing ho, toh default logo/avatar dikhaya.
+Dev Mode Switcher Fix:
+
+Role change event pe header/drawer UI update hota hai.
+Event listeners har partial reload ke baad attach kiye.
+Partial Loader Integration:
+
+Har page load ya partial reload pe header/drawer JS logic run hota hai.
+Theme Logic:
+
+Theme (light/dark) user/system preference se set hota hai, FOUC avoid kiya.
+Summary:
+Aapka aim tha header/drawer ko dynamic banana, vo achieve ho gaya —
+Ab UI me data static nahi, users.json/merchants.json se JS ke through aata hai,
+Aur dev mode switcher, theme, partial loader sab sahi se kaam karte hain.
+
+or broker image hone par user fas fa icon dikhana tha 

@@ -1,0 +1,26 @@
+{
+  "name": "apna-store",
+  "version": "7.0.0",
+  "description": "A modern PWA for local shops and services.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx live-server . --port=8181",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm start"
+  },
+  "keywords": [
+    "pwa",
+    "local",
+    "store",
+    "vanilla-js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2"
+  }
+}

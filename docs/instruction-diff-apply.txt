@@ -1,0 +1,33 @@
+📄 APPLYING GEMINI CODE PATCHES IN PROJECT
+📅 Last Updated: 16/07/2025
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 OVERVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Gemini kabhi-kabhi `.diff` file ya patch deta hai — jisme code changes hote hain.
+Iss file ko project me auto-apply karne ke liye `git apply` ya `patch` command ka use karte hain.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🪵 STEP-BY-STEP GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ FILE BANAO
+
+Gemini se mila code changes `.diff` format me ho — usse ek file me save karo:
+
+📁 Example:
+  changes.diff
+
+Note: File extension `.diff` hi rakho.
+
+---
+
+2️⃣ TERMINAL OPEN KARO (PROJECT FOLDER ME)
+
+Command chalao:
+
+TERMINAL
+
+git apply changes.diff
+
+git apply -3 changes.diff

@@ -1,0 +1,178 @@
+📱 Apna Store – UI System Role-Based scrollable project.
+===========================================================
+🔹App Name: "Apna Store", Developer name: Mr. Santosh @2025 
+🔹User Name: "Vivek Kumar" Email: vivekkumar@outlook.in phone:+91 9634678933
+🔹Admin Name: Rohit Kumar, Shop Name: Internet Cafe and Grocery, mycafe@outlook.in, phone:+91 9634645213
+Note: Web bassed mobile first view app (Apk based)
+🧩 Important Instruction
+-----------------------------------------------------------
+🔹In drawer option the dvider of shere alway on footer of whenver no dependency with other options
+🔹In Home page action
+   • In top a Greeting will show every one (e.g. - good morning, afternoon to guest, user, or admin )
+   •  After Greeting show banners and offers to user or guest.
+🔹Every option and feature will clickable, ifno to feature commin soon
+🔹ever page have ther role based footer last scrool is footer foot and navigation panal top are attached
+🔹Header and Navigation panel are always visible.
+🔹In drawer menu icon and name left align, arrows are right align
+🔹alway give ids, and classes easy to readable in codes
+👥 ROLES SUPPORTED
+===========================================================
+
+🔓 1. DEFAULT / GUEST (Not Logged In) : 
+-----------------------------------------------------------
+🔹In Default Mode App Related Data shown
+🔹 Header:
+   • Left: 🛍️ App Logo + Name
+   • Right: 🔍 Search | 🔔 Notification
+
+🔹 Search Mode Behavior:
+   • Branding hides
+   • Search shifts left
+   • Bell turns into ← back
+   • Tap outside = exit search
+
+🔹 Bottom Navigation:
+   • 🏠 Home       – Explore Feed, banners, offers etc
+   • 🛍️ Explore    – Product/Service Tabs, categories
+   • ❤️ Saved      – Liked Items
+   • 🛒 Cart Items       – Items in Cart
+   • 👤 Account    – Dedicated page for user, guest, or admin
+
+🔹 Drawer (Tap on Logo):
+   • Message: “Welcome! Please login or sign up…”
+
+   --- Divider ---
+   🔐 Login              >
+   📝 Sign Up            >
+
+   ➤ Shared Auth Options in login and Signup:
+      👤 Login as User
+      🧑‍💼 Login as Admin
+      👤 Register as User
+      🏪 Register Shop
+
+   --- Divider ---
+   💬 Support            >
+   🌐 Language     (Hn/En)
+   🌃 Theme       (On/Off)
+   ℹ️ About Us           >
+   📄 Terms & Privacy    >
+
+
+   --- Divider (ALWAYS AT BOTTOM of drawer Fixed) ---
+   📤 Share App         >
+
+🔹 Footer:
+   • Default App footer
+
+👤 2. USER MODE (Customer Login)
+-----------------------------------------------------------
+🔹 Header: User logo & name
+🔹 Drawer Menu:
+   • Left: 🖼️ Avatar
+   • After Avatar | Name | Email | Phone (if available)
+  --- Divider ---
+   ⚙️ Settings           >
+   🧾 Invoices           >
+   📦 Orders             >
+   ⭐ Reviews            >
+   🌐 Language     (Hn/En)
+   🌃 Theme       (On/Off)
+   💬 Support            >
+   🚪 Logout             >
+
+  --- Divider (ALWAYS AT BOTTOM of drawer Fixed) ---
+   📤 Share App          >
+
+🔹 Bottom Nav: (same as guest, all functional)
+🔹 Footer: same as guest
+
+
+🧑‍💼 3. ADMIN MODE (Shopkeeper)
+-----------------------------------------------------------
+🔹 Header:Shop Logo + Shop Name
+
+🔹 Bottom Nav:
+   • 🏠 Dashboard  - Admin Dashboard, sumary of sale stock, purchases, sales, income summary
+   • 📦 Inventory  - Manage Inventory
+   • 📊 Analytics  - reports Log, and analytics, price logs
+   • 📩 Requests   - Request page
+   • 👤 Account    - admin dedicated page
+
+🔹 Drawer:
+   • Left: 🖼️ Avatar of Admin
+   • After Avatar | Name | Email | Phone (if available)
+   --- Divider ---
+   ⚙️ Settings           >
+   ✏️ Shop Profile⬇️     >
+      • Units
+      • Suppliers
+      • Categories
+      • Offers & Banners
+      • Sales / Income
+   👥 Followers          >
+   👥 Staff              >
+   🌐 Language     (Hn/En)
+   🌃 Theme       (On/Off)
+   💬 Support
+   🚪 Logout
+
+   --- Divider (ALWAYS AT BOTTOM) ---
+   📤 Share App
+
+🔹 Footer:
+   • Shop Management Controls (admin only)
+
+
+🎛️ BEHAVIOR RULES & CONDITIONS
+===========================================================
+
+✔️ Single header (multi-mode via JS)
+✔️ Drawer opens left side → close by swipe or tap out
+✔️ All icons and text left align and arrow right align in drawer menu
+✔️ Bottom nav always fixed (not scrollable)
+✔️ Footer is scrollable → appears above bottom-nav
+✔️ Branding override:
+   const forceHeaderMode = "default" | "user" | "shop" | null;
+✔️ Drawer share icon always pinned at bottom
+✔️ Footer: controlled by role only:
+   - User = no control
+   - Admin = can edit shop footer
+✔️ Dummy content used for demo testing
+✔️ JS loads branding, drawer, footer dynamically
+✔️ All pages wrapped with `<!DOCTYPE html>` for single-file run
+✔️ In drawer share divider option  should alwasy on drawer footer
+
+🖼️ IMAGE ZOOM MECHANISM
+===========================================================
+The item details page features a dual-mode image zoom system that provides an optimal experience for both touch and cursor-based devices.
+
+👆 1. MOBILE (Touch-based Zoom)
+-----------------------------------------------------------
+-   **Module:** `shared/utils/image-zoom.js`
+-   **Activation:** Active on all devices by default for touch events.
+-   **Functionality:**
+    -   **Pinch to Zoom:** Users can use two fingers to zoom in and out of the image.
+    -   **Pan:** When zoomed in, users can pan the image by dragging it with one finger.
+    -   **Double-tap Zoom:** A quick double-tap toggles between a zoomed-in state and the default view.
+
+🖱️ 2. DESKTOP (Cursor-based Zoom)
+-----------------------------------------------------------
+-   **Module:** `shared/utils/cursor-zoom.js`
+-   **Activation:** Activates only on screens wider than `1024px`.
+-   **Functionality:**
+    -   **Hover to Zoom:** When the user hovers the cursor over the main image, a "lens" appears.
+    -   **Result Box:** A separate "result box" appears next to the image, displaying the magnified portion.
+    -   **Responsive Sizing:** The result box's size dynamically matches the size of the `#item-info` container, making it fully responsive.
+    -   **Configurable Zoom:** The zoom level can be easily adjusted by changing the `zoomFactor` variable in `cursor-zoom.js`.
+
+🔧 Orchestration (`item-details.js`)
+-----------------------------------------------------------
+-   `initializeItemDetailsPage` checks the screen width using `window.matchMedia`.
+-   It dynamically imports and initializes the appropriate zoom module (`image-zoom.js` for touch, and `cursor-zoom.js` for desktop).
+-   It includes cleanup functions (`cleanupImageZoom`, `cleanupDesktopZoom`) to remove event listeners when the user navigates to another item, preventing memory leaks and bugs.
+===========================================================
+
+
+
+===========================================================

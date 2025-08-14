@@ -1,0 +1,4 @@
+ctrl+shift+B - run task
+alt+s - my favorite live preview
+alt+z - text wrap on/off
+alt+

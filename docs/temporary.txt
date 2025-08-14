@@ -1,0 +1,241 @@
+
+
+⚙️ Upgrade deploymentMode?
+
+
+<script>
+  window.APP_CONFIG = {
+    deploymentMode: null;  // null,"admin" or "dev"
+  };
+</script>
+
+
+---
+
+✅ Supported Modes
+
+1. null – Normal Mode
+
+🔓 Default fallback mode
+
+App works normally like in development
+
+Role depends on currentRole from localStorage
+
+Useful for local testing and general builds
+
+
+---
+
+2. "admin" – Special Admin Mode (he is special shopkeeper)
+
+🛡️ Forces the app to display Admin Shop to all users
+
+No matter who the user is (guest/user/or any admin), they see special admin's:
+
+Special Admin’s logo
+Special Admin’s store name
+Special Admin’s items and services product etc
+
+
+---
+
+3. "dev" – Developer Mode
+
+🧪 Shows a banner: "⚠️ App is in Development Mode. plz wait..."
+
+Developer role-switcher is visible and dev can switch all modes (guest, user, admin, dev)
+
+
+zoom style for desktop
+/* New Zoom Result Box Styles */
+#zoom-result-box {
+  display: none;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1050;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 720px) {
+#image-zoom-container {
+  position: relative;
+  visibility: visible;
+  width: 100%;
+  he
+
+#item-main-image.zoomed {
+  transform: scale(2);
+  transform-origin: center center;
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+#item-main-image {
+  transition: transform 0.2s ease;
+}
+
+#image-zoom-lens {
+  position: absolute;
+  display: none; /* Hidden by default, shown with JS */
+  /* Width and height are now set by JavaScript to match aspect ratio */
+  border: 1px solid #007bff;
+  background-color: rgba(33, 150, 243, 0.4); /* Semi-transparent overlay */
+  pointer-events: none;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+#image-zoom-container:hover {
+  position: relative;
+  overflow: visible;
+}
+}ight: 100%;
+}
+
+{
+  "id": "prod_1001",
+  "type": "product",
+  "name": "Parle-G Original Glucose Biscuits",
+  "brandId": "brand_parle",
+  "categoryId": "cat_biscuits",
+  "subcategoryId": "subcat_glucose",
+  "shopId": "shop_1",
+  "price": 10,
+  "mrp": 12,
+  "costPrice": 8.50,
+  "currency": "INR",
+  "discountPercentage": 16.67,
+  "discountAmount": 2.00,
+  "stockQty": 150,
+  "lowStockThreshold": 20,
+  "inStock": true,
+  "stockStatus": "in_stock",
+  "unit": "packet",
+  "unitType": "count",
+  "description": "Classic Parle-G glucose biscuits, perfect for tea time.",
+  "shortDescription": "India's favorite glucose biscuits",
+  "images": [
+    "https://cdn.example.com/images/parleg-main.jpg",
+    "https://cdn.example.com/images/parleg-side.jpg"
+  ],
+  "thumbnail": "https://cdn.example.com/images/parleg-thumb.jpg",
+  "video": null,
+  "active": true,
+  "isPopular": true,
+  "visibility": "catalog_search",
+  "barcode": "8901234567890",
+  "barcodeType": "EAN-13",
+  "sku": "PARLEG-80G",
+  "attributes": {
+    "flavor": "original",
+    "packaging": "plastic",
+    "weight": "80g",
+    "dimensions": "15x10x3 cm",
+    "ingredients": ["wheat flour", "sugar", "glucose", "milk solids"],
+    "shelfLife": "6 months",
+    "countryOfOrigin": "India",
+    "certifications": ["FSSAI"]
+  },
+  "sellerId": "shop_1",
+  "shopName": "Internet Cafe & Grocery",
+  "sellerName": "Rohit Kumar",
+  "returnPolicy": "7 days replacement only",
+  "warranty": "",
+  "rating": 4.5,
+  "numReviews": 120,
+  "views": 0,
+  "wishlists": 0,
+  "createdBy": "mycafe@outlook.in",
+  "updatedBy": "mycafe@outlook.in",
+  "createdAt": "2024-06-10T12:00:00Z",
+  "updatedAt": "2024-06-10T12:00:00Z",
+  "version": 1.0,
+  "tags": ["biscuit", "glucose", "snack", "parle", "original"],
+  "meta": {
+    "title": "Parle-G Biscuits - Buy Online at Apna Store",
+    "keywords": ["biscuit", "glucose", "snack"],
+    "description": "Buy original Parle-G glucose biscuits at best price"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[
+  {
+    "id": "serv_0001",
+    "type": "service",
+    "name": "Online Form Fillup",
+    "brandId": null,
+    "categoryId": "cat_printing",
+    "subcategoryId": "subcat_form_fill",
+    "shopId": "shop_1",
+    "price": 50,
+    "mrp": 60,
+    "costPrice": 40,
+    "currency": "INR",
+    "discountPercentage": 16.67,
+    "discountAmount": 10,
+    "stockQty": null,
+    "lowStockThreshold": null,
+    "available": true, avai
+    "availablityStatus": "available",
+    "unit": "photo",
+    "unitType": "count",
+    "description": "Professional online form filling for exams, jobs, and applications with accuracy.",
+    "shortDescription": "Digital form filling service",
+    "images": ["form_fill.jpg"],
+    "thumbnail": "form_fill.jpg",
+    "video": null,
+    "active": true,
+    "isPopular": false,
+    "visibility": "catalog_search",
+    "barcode": "",
+    "barcodeType": "",
+    "sku": "FORM-FILLUP",
+    "attributes": {
+      "mode": "Online",
+      "includes": ["Form fillup", "PDF generation", "Submission assistance"],
+      "serviceTime": "10-15 minutes",
+      "location": "In-shop only",
+      "languageSupport": ["Hindi", "English"],
+      "countryOfService": "India"
+    },
+    "sellerId": "shop_1",
+    "shopName": "Internet Cafe & Grocery",
+    "sellerName": "Rohit Kumar",
+    "returnPolicy": "Non-refundable after submission",
+    "warranty": "",
+    "rating": 4.6,
+    "numReviews": 18,
+    "views": 0,
+    "wishlists": 0,
+    "createdBy": "mycafe@outlook.in",
+    "updatedBy": "mycafe@outlook.in",
+    "createdAt": "2024-06-10T12:00:00Z",
+    "updatedAt": "2024-06-10T12:00:00Z",
+    "version": 1.0,
+    "tags": ["form", "digital", "service", "online"],
+    "meta": {
+      "title": "Form Fillup Service - Online Application Help",
+      "keywords": ["form fillup", "exam form", "application help", "online service"],
+      "description": "Accurate and fast form filling service for job and exam applications."
+    }
+  }
+]

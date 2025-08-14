@@ -1,0 +1,43 @@
+
+🔁 Code Refactor Note 
+===========================
+
+1️⃣ "role" ya "userRole" ko ab se "userType" banana hai  
+-------------------------------------------------------
+👨‍💻 Sab jagah badalna hai:  
+  - JSON files (jaise users.json maine update kar diya baki tum dekh lena)  
+  - JS, html, css files me jaha bhi role ya userRole use hua ho  
+  - Comments me bhi agar role likha ho to usko bhi
+
+✅ After change current Allowed values:  
+  - null  
+  - "user"  
+  - "merchant"  
+  - "admin"  
+
+⚠️ Agar kahi "developer" likha ho to usko bhi "admin" bana dena
+
+💡 Example:
+  // Pehle:
+  { "role": "developer" }
+
+  // Ab:
+  { "userType": "admin" }
+
+
+2️⃣ "appMode" ka logic define karna hai   
+--------------------------------------------------------------
+👁️‍🗨️ window.APP_CONFIG ke andar hota hai — wahi use hoga
+
+✔️ appMode ke valid values:
+  - null     → normal live app (default login-based) (note iff value is null than Admin got switcher after loged in,)
+  - "dev"    → Admin testing mode (role switcher always enabled)
+  - "promo"  → merchant promotion wala mode (note pahle ye "merchant" tha)
+
+💡 Example:
+  window.APP_CONFIG = {
+    appMode: "dev"
+  };
+// comments bhi update karte jana 
+
+implement it and response me in hindi/hinglish not in english, relevenet files > index.html, dev-mode-switch.html, bottom-nav.html header.html drawer.html footer.html, account-view.js, dev-home.html, partial-loader.js , ui-updater.js , auth.js
