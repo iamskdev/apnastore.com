@@ -4,7 +4,7 @@
   "description": "A modern PWA for local shops and services.",
   "main": "index.js",
   "scripts": {
-    "start": "npx live-server . --port=8181",
+    "start": "https://github.com/iamskdev/apnastore.com",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm start"
   },
