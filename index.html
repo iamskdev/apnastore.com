@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Set the base URL to fix relative path issues in SPA routing with dev servers -->
-  <base href="/index.html">
+  <base href="index.html">
   <!-- Meta tags and links will remain as is -->
   <title>Apna Store - Local Store</title>
-  <link rel="stylesheet" href="/src/common/styles/main-style.css" />
+  <link rel="stylesheet" href="src/common/styles/main-style.css" />
   <!-- Link to the Web App Manifest -->
   <!-- Link to the favicon to prevent the 404 error for favicon.ico -->
-  <link rel="icon" href="/src/assets/logos/app-logo.png" type="image/jpeg">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="src/assets/logos/app-logo.png" type="image/jpeg">
+  <link rel="manifest" href="manifest.json">
   <!-- Set theme color for browser UI -->
   <meta name="theme-color" content="#ffffff">
   <!-- Global App Configuration (must be loaded first) -->
-  <script src="/src/utils/app-config.js"></script>
+  <script src="src/utils/app-config.js"></script>
   <script>
     // This inline script runs before rendering to prevent a "flash of unstyled content" (FOUC).
     // It sets the theme class on the <html> element based on user preference or system settings.
@@ -104,7 +104,7 @@
 
 
   <!-- 7. Dev Mode Switcher (should be last) -->
-  <div data-partial="/src/components/role-switcher.html" data-devonly></div>
+  <div data-partial="src/components/role-switcher.html" data-devonly></div>
 
 <script>
   // Register the Service Worker (or unregister in dev mode)
@@ -138,7 +138,7 @@
   <!-- 8. Scripts -->
   <!-- Use a modular script to keep the HTML clean -->
 <script type="module">
-  import { loadSmartPartials } from '/src/utils/partial-auto-loader.js';
+  import { loadSmartPartials } from 'src/utils/partial-auto-loader.js';
 
   // Load all HTML partials first. Using .then/.catch is more robust than top-level await
   // as it provides a clear path for error handling if a partial fails to load.
@@ -146,7 +146,7 @@
     .then(() => {
       // Once partials are successfully loaded, import and run the main application script.
       console.log("✅ All partials loaded, initializing main application script...");
-      return import('/src/common/scripts/main-script.js');
+      return import('src/common/scripts/main-script.js');
     })
     .catch(error => {
       // This is a critical error. The app cannot start.
